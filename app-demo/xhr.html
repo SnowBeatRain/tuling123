@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <ul>
+        <li>姓名：<input class="panel panel-primary" type="text" id="txtName"></li>
+        <li>昵称：<input class="panel panel-info" type="text" id="txtNickName"></li>
+        <li>类型：
+            <select class="panel panel-danger" name="" id="selType">
+                <option value="元素">元素</option>
+                <option value="魔导">魔导</option>
+                <option value="贤者">贤者</option>
+                <option value="祭祀">祭祀</option>
+                <option value="战神">战神</option>
+                <option value="剑圣">剑圣</option>
+                <option value="炼金">炼金</option>                
+                <option value="工程师">工程师</option>                
+                <option value="箭神">箭神</option>  
+                <option value="游侠">游侠</option>                                              
+                                
+            </select>
+        </li>
+        <li>攻击：<input class="panel panel-warning" type="text" id="txtG"></li>
+        <li>级别：<input class="panel panel-danger" type="text" id="txtD"></li>
+        <li><button onclick="doSub(event)" class="btn">提交</button></li>
+    </ul>
+    <div class="table-responsive">
+        <table  class="table">
+            <thead>
+                <tr class="success">
+                    <td>序号</td>
+                    <td>姓名</td>
+                    <td>昵称</td>
+                    <td>类型</td>
+                    <td>攻击</td>
+                    <td>防御</td>
+                </tr>
+            </thead>
+            <tbody id="tb"></tbody>
+        </table>
+    </div>
+    <script src="js/xhr.js"></script>
+</body>
+
+</html>
