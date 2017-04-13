@@ -28,9 +28,18 @@ function sendMsg(msg){
                 var arrCoolBooks = res.list
                 var strLists = ''
                 arrCoolBooks.forEach(function(item) {
-                    strLists +=`<a href="${item.detailurl}" target="_blank">${item.name}</a><br>`   
+                    strLists +=`<a class="link" href="${item.detailurl}" target="_blank">${item.name}</a><br>`   
                 })
                 strHtml = `提问：${txt.value}<br>回答:${strLists}<hr>`
+            }
+            else if(res.code == 302000){
+                var arrNews = res.list
+                var strImgs = ''
+                arrNews.forEach(function(item) {
+                    strImgs +=`<a href="${item.detailurl}" target="_blank">${item.article}</a><br>
+                                <img src="${item.icon}"><br><hr>`   
+                })
+                strHtml = `提问：${txt.value}<br>回答:${strImgs}<hr>`
             }
             else{
                 strHtml = `提问：${txt.value}<br>回答：我暂时无法回答你的问题`
