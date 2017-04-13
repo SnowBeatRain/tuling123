@@ -24,6 +24,14 @@ function sendMsg(msg){
             else if(res.code == 200000){
                 strHtml = `提问：${txt.value}<br>回答：<a target ="_blank" href="${res.url}">已找到</a>`
             }
+            else if(res.code == 308000){
+                var arrCoolBooks = res.list
+                var strLists = ''
+                arrCoolBooks.forEach(function(item) {
+                    strLists +=`<a href="${item.detailurl}" target="_blank">${item.name}</a><br>`   
+                })
+                strHtml = `提问：${txt.value}<br>回答:${strLists}<hr>`
+            }
             else{
                 strHtml = `提问：${txt.value}<br>回答：我暂时无法回答你的问题`
             }
