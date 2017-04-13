@@ -16,9 +16,20 @@ function sendMsg(msg){
     xhr.onreadystatechange = function(){
         if(xhr.readyState ==4){
             // app.innerHTML +=xhr.response + `<hr>`
-            var t = JSON.parse(xhr.response)
-            app.innerHTML +='我：'+txt.value+'<br>'+`机器人：<span>${t.text}</span>`+`<hr>`
-            txt.value= ''            
+            var res = JSON.parse(xhr.response)
+            var strHtml =''
+            if(res.code == 100000){
+                strHtml = `我：${txt.value}<br>回答：${res.text}<hr>`
+            }
+            else if(res.code == 200000){
+                strHtml = `提问：${txt.value}<br>回答：<a target ="_blank" href="${res.url}">已找到</a>`
+            }
+            else{
+                strHtml = `提问：${txt.value}<br>回答：我暂时无法回答你的问题`
+            }
+            // app.innerHTML +='我：'+txt.value+'<br>'+`机器人：<span>${t.text}</span>`+`<hr>`
+            txt.value= ''     
+            app.innerHTML += strHtml       
         }
     }
     xhr.open('get','http://www.tuling123.com/openapi/api?key=c22226f2aeff4843a40b65772112a91b&info='+txt.value)
